@@ -1,21 +1,32 @@
-import React from 'react'
 import { GlobalProvider } from './context/GlobalState'
-import Header from './components/header'
+// import Header from './components/header'
 import Balance from './components/Balance'
 import TransactionForm from './components/transactions/transactionForm'
 import TransactionList from './components/transactions/transactionList'
+import IncomeExpenses from './components/incomeExpenses'
+import ExpenseChart from './components/expenseChart'
 
 function App() {
   return (
-    <div>
+    <GlobalProvider >
+      <div className='bg-zinc-950 text-white h-screen flex justify-center items-center'>
+        <div className='container mx-auto w-3/6'>
+          <div className='bg-zinc-800 p-10 rounded-lg flex gap-x-2'>
+            <div>
+              <h1 className='text-4xl font-bold '> Expense Tracker</h1>
+              <IncomeExpenses />
+              <Balance />
+              <TransactionForm />
+            </div>
+            <div className='flex flex-col flex-1'>
+              <ExpenseChart />
+              <TransactionList />
+            </div>
 
-      <GlobalProvider >
-        <Header />
-        <Balance />
-        <TransactionForm />
-        <TransactionList />
-      </GlobalProvider>
-    </div>
+          </div>
+        </div>
+      </div>
+    </GlobalProvider>
   )
 }
 
