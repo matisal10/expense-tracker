@@ -39,7 +39,7 @@ export default function ExpenseChart() {
                 animate={{
                     duration: 2000,
                 }}
-                labels={({ datum }) => datum.y}
+                labels={({ datum }) => `${datum.y.toFixed(2)} %`}
                 labelComponent={
                     <VictoryLabel
                         angle={45}
